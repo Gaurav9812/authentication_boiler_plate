@@ -7,7 +7,7 @@ module.exports.checkAuthenticated = async function (req, res, next) {
     let user = await User.findById(req.cookies.user_id);
     if (user) {
       console.log("user set", user);
-      //   res.locals.user = user;
+      res.locals.user = user;
       next();
       return;
     }

@@ -10,6 +10,8 @@ ROUTER.use("/profile", require("./profile"));
 
 ROUTER.get("/login", UserController.logIn);
 
+ROUTER.get("/logout", UserController.destroySession);
+
 ROUTER.get("/signup", UserController.signUp);
 
 ROUTER.post("/create-user", UserController.createUser);

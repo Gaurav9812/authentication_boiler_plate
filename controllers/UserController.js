@@ -64,3 +64,8 @@ module.exports.createSession = async function (req, res) {
   console.log("User found", user);
   return res.redirect("back");
 };
+
+module.exports.destroySession = function (req, res) {
+  res.cookie("user_id", "", { maxAge: new Date() });
+  return res.redirect("/login");
+};
