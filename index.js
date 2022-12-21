@@ -6,11 +6,14 @@ const app = express();
 const bodyParser = require("body-parser");
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
+const cookieParser = require("cookie-parser");
 
 app.use(express.static("./assets"));
 app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
+
+app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
