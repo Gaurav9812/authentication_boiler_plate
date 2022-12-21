@@ -8,7 +8,7 @@ const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
 
 app.use(express.static("./assets"));
-
+app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.set("views", PATH.join(__dirname, "views"));
 
-app.use(expressLayouts);
 app.use("/", require("./routes"));
 //Deprecated
 // app.use(express.urlencoded());
