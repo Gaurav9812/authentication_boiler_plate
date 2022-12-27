@@ -14,3 +14,16 @@ module.exports.checkAuthenticated = async function (req, res, next) {
   }
   return res.redirect("/login");
 };
+
+module.exports.noAuthenticated = async function (req, res, next) {
+  if (req.cookies.user_id) {
+    let user = await User.findById(req.cookies.user_id);
+    if (user) {
+      console.log("user set", user);
+      res.locals.user = user;
+      return res.redirect("back");
+    }
+  }
+  next();
+  return;
+};
