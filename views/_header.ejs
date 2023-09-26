@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid  d-flex justify-content-between">
     <a class="navbar-brand fw-bold" href="#">Authentication</a>
-    
+    <% if(!locals.user) { %>
       <div >
         <a class="active text-light me-3 fw-bold" aria-current="page" href="/login"
           >Signin</a
@@ -9,6 +9,11 @@
         <a class="active text-light me-3 fw-bold" aria-current="page" href="/signup"
           >Signup</a
         >
+        <% } else { %>
+          <a class="active text-light me-3 fw-bold" aria-current="page" href="/destroy-session"
+          >Logout</a
+        >
+       <% } %>
         
       </div>
     </div>
